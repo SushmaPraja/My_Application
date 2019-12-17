@@ -119,6 +119,11 @@ public class T1Activity extends AppCompatActivity
                 Toast.makeText(this, "User Added", Toast.LENGTH_SHORT).show();
             }
         }
+        //image file with extension
+//        String uri = "@drawable/"+img;
+//        int resID= getResources().getIdentifier(uri, null, getPackageName());
+//        Drawable drawable = getResources().getDrawable(resID);
+//        imageView.setImageDrawable(drawable);
 
         if(view.getId() == R.id.etDob){
             new DatePickerDialog(this,mydatepicker,calendar.get(Calendar.YEAR),

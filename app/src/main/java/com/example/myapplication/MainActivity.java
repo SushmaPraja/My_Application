@@ -8,7 +8,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button buttonL1, buttonG1, buttonR1, buttonF1, buttonT1, buttonC1,buttonRv; //defining objects
+    Button buttonL1, buttonG1, buttonR1, buttonF1, buttonT1, buttonC1,buttonRv, buttonTool, buttonFile, buttonShare, buttonRetrofit; //defining objects
+    //HashMap<String, String> myhm = new HashMap<>();
 
 
     @Override
@@ -23,6 +24,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonT1 = findViewById(R.id.btnT1);
         buttonC1 = findViewById(R.id.btnC1);
         buttonRv = findViewById(R.id.btnRv);
+        buttonTool = findViewById(R.id.btnTool);
+        buttonFile = findViewById(R.id.btnFile);
+        buttonShare = findViewById(R.id.btnSharePre);
+        buttonRetrofit = findViewById(R.id.btnRetrofit);
+
 
         buttonL1.setOnClickListener(this);
         buttonG1.setOnClickListener(this);
@@ -31,6 +37,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonT1.setOnClickListener(this);
         buttonC1.setOnClickListener(this);
         buttonRv.setOnClickListener(this);
+        buttonTool.setOnClickListener(this);
+        buttonFile.setOnClickListener(this);
+        buttonShare.setOnClickListener(this);
+        buttonRetrofit.setOnClickListener(this);
+
+//        myhm.put("Apple","A fruit");
+//        myhm.put("Ball","A rounded object used to play");
     }
 
     @Override
@@ -56,9 +69,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this, Ct1Activity.class);
             startActivity(intent);
         }
-        if(v.getId() == R.id.btnRv){
-        Intent intent = new Intent(this, RvActivity.class);
-        startActivity(intent);
+        if(v.getId() == R.id.btnRv) {
+            Intent intent = new Intent(this, RvActivity.class);
+            startActivity(intent);
+        }
+            if(v.getId() == R.id.btnTool){
+                Intent intent = new Intent(this, ToolbarActivity.class);
+                startActivity(intent);
     }
+        if(v.getId() == R.id.btnFile){
+            Intent intent = new Intent(this, FileActivity.class);
+            startActivity(intent);
+        }
+        if(v.getId() == R.id.btnSharePre){
+            Intent intent = new Intent(this, SharePreActivity.class);
+            startActivity(intent);
+        }
+        if(v.getId() == R.id.btnRetrofit){
+            Intent intent = new Intent(this, RetrofitEmpActivity.class);
+            startActivity(intent);
+        }
     }
 }

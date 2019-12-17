@@ -1,10 +1,12 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,9 +19,12 @@ import java.util.List;
 public class MyRvAdapter extends RecyclerView.Adapter<MyRvAdapter.MyHolder> {
 
    private List<Food> foodList = new ArrayList<>();
+   private Context context;
 
-    public MyRvAdapter(List<Food> foodList) {
+    public MyRvAdapter(List<Food> foodList, Context context)
+    {
         this.foodList = foodList;
+        this.context = context;
     }
 
     @NonNull
@@ -32,21 +37,20 @@ public class MyRvAdapter extends RecyclerView.Adapter<MyRvAdapter.MyHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        Food food = foodList.get(position);
+        final Food food = foodList.get(position);
         holder.tvName.setText(food.getName());
         holder.tvCat.setText(food.getCateg());
         holder.tvPrice.setText(food.getPrice());
         holder.imageView.setImageResource(food.getImg());
-//        holder.tvName1.setText(food.getName1());
-//        holder.tvCat1.setText(food.getName());
-//        holder.tvPrice1.setText(food.getName());
-//        holder.imageView1.setImageResource(food.getImg());
-//        holder.tvName2.setText(food.getName1());
-//        holder.tvCat2.setText(food.getName());
-//        holder.tvPrice2.setText(food.getName());
-//        holder.imageView2.setImageResource(food.getImg());
+    // holder.imageView.setImageDrawable(food.getImg());
 
-    }
+        holder.tvName.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(context, food.getName(), Toast.LENGTH_SHORT).show();
+        }
+    });
+}
 
     @Override
     public int getItemCount() {

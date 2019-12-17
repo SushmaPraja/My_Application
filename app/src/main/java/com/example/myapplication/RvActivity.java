@@ -3,7 +3,7 @@ package com.example.myapplication;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.module.Food;
@@ -24,8 +24,12 @@ public class RvActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rvFoods);
 
         getData();
-        MyRvAdapter adapter = new MyRvAdapter(foods);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
+        MyRvAdapter adapter = new MyRvAdapter(foods, this);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+
+       // RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
+
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
     }

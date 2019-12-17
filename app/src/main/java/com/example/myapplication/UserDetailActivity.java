@@ -28,7 +28,7 @@ public class UserDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String n = intent.getStringExtra("Name");
         String g = intent.getStringExtra("Gender");
-        String d = intent.getStringExtra("Dob");
+        String d = intent.getStringExtra("DoB");
         String c = intent.getStringExtra("Country");
         String p = intent.getStringExtra("Phone");
         String e = intent.getStringExtra("Email");
